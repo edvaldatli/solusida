@@ -7,11 +7,24 @@ nav{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
 }
-h4#landing{
-    text-align: center;
+.maintext{
+    margin-bottom: 70px;
 }
-.valign{
-    min-height: 1000px;
-    display: table-cell;
-    vertical-align: middle;
+.threecontainer div{
+    margin-top: 30px;
+}
+.container-low{
+    margin-top: 200px;
+    margin-bottom: 70px;
+}
+@media screen and (max-width: 480px){
+    .container-low{
+        margin-top: 10px;
+    }
+}
+.brand-logo{
+    font-weight: lighter;
+}
+.btn-large{
+
 }

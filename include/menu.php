@@ -4,7 +4,7 @@
 
 <nav>
     <div class="container nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#!" class="brand-logo">SHOPPING<b>SITE</b></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="sass.html">Sass</a></li>
