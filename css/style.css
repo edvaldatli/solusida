@@ -1,0 +1,17 @@
+/* LANDING */
+
+body#landing{
+    background-image: url(../image/landing.jpg);
+}
+nav{
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+h4#landing{
+    text-align: center;
+}
+.valign{
+    min-height: 1000px;
+    display: table-cell;
+    vertical-align: middle;
+}
