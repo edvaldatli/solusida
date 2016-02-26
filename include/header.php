@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="css/materialize.css">
 <link rel="stylesheet" href="css/style.css">
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
