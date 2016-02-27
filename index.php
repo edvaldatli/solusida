@@ -21,6 +21,7 @@
                 <a class="waves-effect waves-light btn-large">sign up</a>
                 <a class="waves-effect waves-light btn-large">login</a>
             </div>
+            <a href="#" class="col s12 toSite center white-text">Continue to site</a>
         </div>
     </div>
     <div class="row">
