@@ -25,10 +25,18 @@ nav{
 .toSite{
     margin: 20px;
     text-decoration: underline;
+    font-size: 12px;
 }
 .brand-logo{
     font-weight: lighter;
 }
-.btn-large{
-
+.login-form{
+    background-color: rgba(255,255,255, 1);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
+.btn{
+    margin: 10px;
+}
+
