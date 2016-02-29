@@ -1,9 +1,16 @@
-<html>
 <?php
+    session_start();
+    require_once "include/register.php";
 
+    $login = new USER();
 
+    if($login->is_loggedin() == true)
+    {
+        $login->redirect('home.php');
+    }
 ?>
-
+<!DOCTYPE html>
+<html>
 <head>
 <?php
     require "include/header.php";

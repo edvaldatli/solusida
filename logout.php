@@ -5,6 +5,7 @@
  * Date: 29.2.2016
  * Time: 17:19
  */
+session_start();
 require_once('include/session.php');
 require_once('include/register.php');
 $user_logout = new USER();

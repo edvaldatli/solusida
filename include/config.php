@@ -6,6 +6,9 @@
  * Time: 11:52
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
 class Database
 {
     private $host = "localhost";
