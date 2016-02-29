@@ -9,6 +9,7 @@
     require "include/header.php";
 ?>
 </head>
+
 <body id="landing">
 <?php
     require "include/menu.php";
@@ -21,7 +22,7 @@
                 <a class="waves-effect waves-light btn-large">sign up</a>
                 <a class="waves-effect waves-light btn-large" href="login.php">login</a>
             </div>
-            <a href="#" class="col s12 toSite center white-text">Continue to site</a>
+            <a class="col s12 toSite center white-text" href="home.php">Continue to site</a>
         </div>
     </div>
     <div class="row">
