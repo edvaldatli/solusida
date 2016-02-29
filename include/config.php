@@ -5,16 +5,29 @@
  * Date: 29.2.2016
  * Time: 11:52
  */
-$servername = "localhost";
-$username = "sale";
-$password = "9K2q7ycuSqDK4EuD";
 
-try {
-    $db = new PDO("mysql:host=$servername;dbname=solusida", $username, $password);
-    // set the PDO error mode to exception
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
+class Database
 {
-    echo "Connection failed: " . $e->getMessage();
+    private $host = "localhost";
+    private $db_name = "solusida";
+    private $username = "sale";
+    private $password = "9K2q7ycuSqDK4EuD";
+    public $conn;
+
+    public function dbConnection()
+    {
+
+        $this->conn = null;
+        try
+        {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch(PDOException $exception)
+        {
+            echo "Connection error: " . $exception->getMessage();
+        }
+
+        return $this->conn;
+    }
 }

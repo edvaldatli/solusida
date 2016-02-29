@@ -19,7 +19,7 @@
         <div class="container-low">
             <h2 class="maintext white-text center light">Do your shopping easily over the internet</h2>
             <div class="signup-login center">
-                <a class="waves-effect waves-light btn-large">sign up</a>
+                <a class="waves-effect waves-light btn-large" href="register.php">sign up</a>
                 <a class="waves-effect waves-light btn-large" href="login.php">login</a>
             </div>
             <a class="col s12 toSite center white-text" href="home.php">Continue to site</a>
