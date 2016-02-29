@@ -35,7 +35,7 @@ if(isset($_POST['action']))
     {
         try
         {
-            $stmt = $user->runQuery("SELECT username, email FROM users WHERE username=:uname OR email=:umail");
+            $stmt = $user->runQuery("SELECT id, username, email FROM users WHERE username=:uname OR email=:umail");
             $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
             $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -48,7 +48,7 @@ if(isset($_POST['action']))
             else
             {
                 if($user->register($uname,$fname,$umail,$unumber,$upass)){
-                    $user->redirect('profile.php');
+                    $user->redirect('login.php');
                 }
             }
         }

@@ -1,7 +1,13 @@
 <?php
+session_start();
 require("include/config.php");
 require_once('include/register.php');
 $login = new USER();
+
+if($login->is_loggedin()!="")
+{
+    $login->redirect('home.php');
+}
 
 if(isset($_POST['uname_email']))
 {
@@ -11,10 +17,8 @@ if(isset($_POST['uname_email']))
 
     if($login->doLogin($uname,$umail,$upass))
     {
-        $login->redirect('home.php');
-    }
-    else
-    {
+            $login->redirect('profile.php');
+    }else{
         $error = "Wrong Details !";
     }
 }

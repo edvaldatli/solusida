@@ -57,15 +57,20 @@ class USER
     {
         try
         {
-            $stmt = $this->conn->prepare("SELECT id, username, email, password FROM users WHERE username=:uname OR email=:umail ");
+            $stmt = $this->conn->prepare("SELECT id, username, email, password, admin FROM users WHERE username=:uname OR email=:umail ");
             $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
             $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() == 1)
             {
                 if(password_verify($upass, $userRow['password']))
                 {
-                    $_SESSION['user_session'] = $userRow['id'];
-                    return true;
+                    if($userRow['admin'] = 'yes'){
+                        $_SESSION['admin'] = $userRow['id'];
+                        return true;
+                    }else{
+                        $_SESSION['user'] = $userRow['id'];
+                        return true;
+                    }
                 }
                 else
                 {
@@ -81,8 +86,9 @@ class USER
 
     public function is_loggedin()
     {
-        if(isset($_SESSION['user_session']))
-        {
+        if(isset($_SESSION['user'])){
+            return true;
+        }elseif(isset($_SESSION['admin'])){
             return true;
         }
     }
@@ -95,7 +101,8 @@ class USER
     public function doLogout()
     {
         session_destroy();
-        unset($_SESSION['user_session']);
+        unset($_SESSION['user']);
+        unset($_SESSION['admin']);
         return true;
     }
 
