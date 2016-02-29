@@ -47,7 +47,7 @@ if(isset($_POST['action']))
             }
             else
             {
-                if($user->register($uname,$umail,$upass)){
+                if($user->register($uname,$fname,$umail,$unumber,$upass)){
                     $user->redirect('profile.php');
                 }
             }
