@@ -6,11 +6,11 @@ $user = new USER();
 
 if(isset($_POST['action']))
 {
-    $fname = strip_tags($_POST['name-reg']);
-    $uname = strip_tags($_POST['username-reg']);
-    $unumber = strip_tags($_POST['phonenumber-reg']);
-    $umail = strip_tags($_POST['email-reg']);
-    $upass = strip_tags($_POST['password-reg']);
+    $fname = trim(strip_tags($_POST['name-reg']));
+    $uname = trim(strip_tags($_POST['username-reg']));
+    $unumber = trim(strip_tags($_POST['phonenumber-reg']));
+    $umail = trim(strip_tags($_POST['email-reg']));
+    $upass = trim(strip_tags($_POST['password-reg']));
 
     if($uname=="")	{
         $error[] = "provide username!";

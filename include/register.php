@@ -29,6 +29,8 @@ class USER
     {
         try
         {
+
+
             $new_password = password_hash($upass, PASSWORD_DEFAULT);
             $id = time();
 
