@@ -11,9 +11,9 @@ if($login->is_loggedin()!="")
 
 if(isset($_POST['uname_email']))
 {
-    $uname = strip_tags($_POST['uname_email']);
-    $umail = strip_tags($_POST['uname_email']);
-    $upass = strip_tags($_POST['password']);
+    $uname = trim(strip_tags($_POST['uname_email']));
+    $umail = trim(strip_tags($_POST['uname_email']));
+    $upass = trim(strip_tags($_POST['password']));
 
     if($login->doLogin($uname,$umail,$upass))
     {
@@ -45,7 +45,7 @@ if(isset($_POST['uname_email']))
                             print_r($error);
                         } ?>
                         <input id="username-log" type="text" name="uname_email" class="validate">
-                        <label for="username-log" class="">Username</label>
+                        <label for="username-log" class="">Username / Email</label>
                     </div>
                     <div class="input-field col s12">
                         <input id="password-log" type="password" name="password" class="validate">
@@ -57,6 +57,23 @@ if(isset($_POST['uname_email']))
             </form>
         </div>
     </div>
+
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+
 </div>
 </body>
 </html>
