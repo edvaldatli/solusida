@@ -2,18 +2,19 @@
 
 ?>
 
-<nav>
+<nav id="landing">
     <div class="container nav-wrapper">
         <a href="index.php" class="brand-logo">SHOPPING<b>SITE</b></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="home.php"><i class="material-icons">home</i></a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="badges.html">Categories</a></li>
             <li><a href="collapsible.html">About</a></li>
             <li><a href="login.php">
                     <?php
-                    if(!isset($_SESSION['user'])) {
-                        echo "Login";
-                    }
+                        if(!isset($_SESSION['user'])) {
+                            echo "Login";
+                        }
                     ?>
                 </a></li>
         </ul>
@@ -25,4 +26,3 @@
         </ul>
     </div>
 </nav>
-

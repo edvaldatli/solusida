@@ -56,6 +56,13 @@ class ADMIN
 
         echo($post_count[0]);
     }
+    public function user_table($sql){
+        $stmt = $this->conn->prepare("SELECT '$sql' FROM users");
+        $stmt->execute();
+        $user_table = $stmt->fetch();
+
+        echo($user_table[0]);
+    }
 }
 
 

@@ -2,10 +2,26 @@
 
 body#landing{
     background-image: url(../image/landing.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
+nav#landing{
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+
 nav{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px lightgray solid;
+}
+nav li a{
+    color: black;
+    font-size: 12px;
+}
+.parallax-container {
+    height: 20em;
 }
 .maintext{
     margin-bottom: 70px;
@@ -14,11 +30,14 @@ nav{
     margin-top: 30px;
 }
 .container-low{
+    
+}
+.container-low#landing{
     margin-top: 200px;
     margin-bottom: 70px;
 }
 @media screen and (max-width: 480px){
-    .container-low{
+    .container-low#landing{
         margin-top: 10px;
     }
 }

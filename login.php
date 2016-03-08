@@ -33,7 +33,7 @@ if(isset($_POST['uname_email']))
 
 <body id="landing">
 <?php
-    require "include/menu.php";
+    require "include/menulanding.php";
 ?>
 <div class="container">
     <div class="row">

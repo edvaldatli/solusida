@@ -2,6 +2,8 @@ $(document).ready(function () {
     $(".button-collapse").sideNav();
     $('.modal-trigger').leanModal();
     $('select').material_select();
+    $('.parallax').parallax();
+
 });
 
 
@@ -15,6 +17,7 @@ $('.dropdown-button').dropdown({
         alignment: 'left' // Displays dropdown with edge aligned to the left of button
     }
 );
+
 
 
 

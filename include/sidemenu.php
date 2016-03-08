@@ -1,5 +1,6 @@
 <?php
-
+    require_once "include/admin_functions.php";
+    $site = new ADMIN();
 ?>
 
 <nav>
@@ -7,7 +8,18 @@
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header"><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="" class="circle responsive-img">Eðvald Atli<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                    <a class="collapsible-header">
+                        <div class="row valign-wrapper">
+                            <div class="col s2">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" alt="" class="circle responsive-img valign-wrapper"> <!-- notice the "circle" class -->
+                            </div>
+                            <div class="col s10">
+                                <p class="black-text valign-wrapper">
+                                    <?php echo $site->user_table('name') ?>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="#!">First</a></li>

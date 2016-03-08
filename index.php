@@ -19,11 +19,11 @@
 
 <body id="landing">
 <?php
-    require "include/menu.php";
+    require "include/menulanding.php";
 ?>
 <div class="container">
     <div class="row">
-        <div class="container-low">
+        <div class="container-low" id="landing">
             <h2 class="maintext white-text center light">Do your shopping easily over the internet</h2>
             <div class="signup-login center">
                 <a class="waves-effect waves-light btn-large" href="register.php">sign up</a>

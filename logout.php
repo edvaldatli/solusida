@@ -6,8 +6,8 @@
  * Time: 17:19
  */
 session_start();
-require_once('include/session.php');
-require_once('include/register.php');
+require_once ('include/session.php');
+require_once ('include/register.php');
 $user_logout = new USER();
 
 if(isset($_SESSION['user']) || isset($_SESSION['admin']))

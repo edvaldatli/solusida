@@ -68,7 +68,7 @@ require "include/header.php";
 
 <body id="landing">
 <?php
-require "include/menu.php";
+require "include/menulanding.php";
 ?>
 <div class="container">
     <div class="row">
@@ -90,7 +90,7 @@ require "include/menu.php";
                         <div class="input-field col s4 m3 l2">
                             <select>
                                 <option value="" disabled selected></option>
-                                <?php include "include/callcodes.php" ?>
+
                             </select>
                             <label>Calling Code</label>
                         </div>
