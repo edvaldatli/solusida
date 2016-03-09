@@ -1,4 +1,7 @@
 /* LANDING */
+body{
+
+}
 
 body#landing{
     background-image: url(../image/landing.jpg);
@@ -10,15 +13,25 @@ nav#landing{
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
 }
 
-
+nav i.material-icons{
+    font-size: 20px;
+}
+.normal-size{
+    font-size: 10px;
+}
 nav{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
     border-bottom: 1px lightgray solid;
 }
+nav a{
+    color: black;
+}
 nav li a{
     color: black;
-    font-size: 12px;
+}
+i .material-icons{
+    font-size: 5px;
 }
 .parallax-container {
     height: 20em;
@@ -30,7 +43,7 @@ nav li a{
     margin-top: 30px;
 }
 .container-low{
-    
+
 }
 .container-low#landing{
     margin-top: 200px;

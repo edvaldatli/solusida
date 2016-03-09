@@ -4,7 +4,7 @@
 
 <nav>
     <div class="container nav-wrapper">
-        <a href="index.php" class="brand-logo">SHOPPING<b>SITE</b></a>
+        <a href="index.php" class="brand-logo black-text">VOLKS<b>WAGEN</b></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="home.php"><i class="material-icons">home</i></a></li>
@@ -15,6 +15,12 @@
                         echo "Login";
                     }
                     ?>
+                </a></li>
+            <li><a href="cart.php"><i class="material-icons left tiny">shopping_cart</i>
+                    <span class="new badge">
+                        <!-- KARFA -->
+                        1
+                    </span>
                 </a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
