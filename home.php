@@ -61,8 +61,8 @@ session_start();
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="http://cdn.pinthiscars.com/images/volkswagen-golf-black-2015-wallpaper-8.jpg">
-                    <span class="card-title">Card Title</span>
+                    <img src="http://avto-russia.ru/autos/volkswagen/photo/volkswagen_beetle_1280x1024.jpg">
+                    <span class="card-title">Volkswagen Beetle</span>
                 </div>
                 <div class="card-content">
                     <p>I am a very simple card. I am good at containing small bits of information.
