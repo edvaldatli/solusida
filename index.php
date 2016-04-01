@@ -1,63 +1,75 @@
 <?php
-    session_start();
-    require_once "include/register.php";
-
-    $login = new USER();
-
-    if($login->is_loggedin() == true)
-    {
-        $login->redirect('home.php');
-    }
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<?php
-    require "include/header.php";
-?>
+    <?php require "include/header.php"; ?>
 </head>
-
-<body id="landing">
-<?php
-    require "include/menulanding.php";
-?>
-<div class="container">
-    <div class="row">
-        <div class="container-low" id="landing">
-            <h2 class="maintext white-text center light">Do your shopping easily over the internet</h2>
-            <div class="signup-login center">
-                <a class="waves-effect waves-light btn-large" href="register.php">sign up</a>
-                <a class="waves-effect waves-light btn-large" href="login.php">login</a>
-            </div>
-            <a class="col s12 toSite center white-text" href="home.php">Continue to site</a>
+<body>
+<?php include "include/menu.php"; ?>
+<div class="parallax-container">
+    <div class="parallax"><img src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
+</div>
+<nav>
+    <div class="container nav-wrapper">
+        <div class="row">
+            <ul class="hide-on-med-and-down">
+                <li class="col s2 center"><a href="#">Golf Mk6</a></li>
+                <li class="col s2 center"><a href="#">Passat CC</a></li>
+                <li class="col s2 center"><a href="#">Polo Mk5</a></li>
+                <li class="col s2 center"><a href="#">Toureg II</a></li>
+                <li class="col s2 center"><a href="#">New Beetle</a></li>
+                <li class="col s2 center"><a href="#">Vento</a></li>
+            </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="divider"></div>
-        <div class="threecontainer">
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h1 class="center white-text"><i class="material-icons">flash_on</i></h1>
-                    <h5 class="center white-text">Speeds up development</h5>
+</nav>
 
-                    <p class="light white-text">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-                </div>
+<div class="container container-low row">
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://avto-russia.ru/autos/volkswagen/photo/volkswagen_golf_gti_1280x1024.jpg">
+                <span class="card-title">Volkswagen Golf Mk6</span>
             </div>
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h1 class="center white-text"><i class="material-icons">group</i></h1>
-                    <h5 class="center white-text">User Experience Focused</h5>
-
-                    <p class="light white-text">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-                </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
             </div>
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h1 class="center white-text"><i class="material-icons">settings</i></h1>
-                    <h5 class="center white-text">Easy to work with</h5>
-
-                    <p class="light white-text">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                </div>
+            <div class="card-action">
+                <a href="#">Read more</a>
+                <a class="right" href="#">Add to Cart<i class="normal-size material-icons right">add_shopping_cart</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://www.volkswagen.com.my/content/medialib/vwd4/my/showrooms/cc/gallery/CP0444-Wallpapers/_jcr_content/renditions/rendition_1.file/wallpaper-cp0444-1280x1024.jpg">
+                <span class="card-title">Volkswagen Passat CC</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://avto-russia.ru/autos/volkswagen/photo/volkswagen_beetle_1280x1024.jpg">
+                <span class="card-title">Volkswagen Beetle</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
             </div>
         </div>
     </div>
