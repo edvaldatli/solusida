@@ -16,12 +16,6 @@
                     }
                     ?>
                 </a></li>
-            <li><a href="cart.php"><i class="material-icons left tiny">shopping_cart</i>
-                    <span class="new badge">
-                        <!-- KARFA -->
-                        1
-                    </span>
-                </a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
             <li><a href="sass.html">Sass</a></li>

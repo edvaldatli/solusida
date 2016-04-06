@@ -12,7 +12,7 @@ ini_set('display_errors', 'On');
 class Database
 {
     private $host = "localhost";
-    private $db_name = "solusida";
+    private $db_name = "vw";
     private $username = "sale";
     private $password = "9K2q7ycuSqDK4EuD";
     public $conn;

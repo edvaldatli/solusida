@@ -11,20 +11,8 @@ session_start();
     <div class="parallax-container">
         <div class="parallax"><img src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
     </div>
-    <nav>
-        <div class="container nav-wrapper">
-            <div class="row">
-                <ul class="hide-on-med-and-down">
-                    <li class="col s2 center"><a href="#">Golf Mk6</a></li>
-                    <li class="col s2 center"><a href="#">Passat CC</a></li>
-                    <li class="col s2 center"><a href="#">Polo Mk5</a></li>
-                    <li class="col s2 center"><a href="#">Toureg II</a></li>
-                    <li class="col s2 center"><a href="#">New Beetle</a></li>
-                    <li class="col s2 center"><a href="#">Vento</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+    <?php include 'include/carmenu.php' ?>
 
     <div class="container container-low row">
         <div class="col s12 m4">
@@ -61,8 +49,8 @@ session_start();
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="http://cdn.pinthiscars.com/images/volkswagen-golf-black-2015-wallpaper-8.jpg">
-                    <span class="card-title">Card Title</span>
+                    <img src="http://avto-russia.ru/autos/volkswagen/photo/volkswagen_beetle_1280x1024.jpg">
+                    <span class="card-title">Volkswagen Beetle</span>
                 </div>
                 <div class="card-content">
                     <p>I am a very simple card. I am good at containing small bits of information.

@@ -1,6 +1,6 @@
 /* LANDING */
 body{
-
+    overflow-x: hidden;
 }
 
 body#landing{
@@ -29,6 +29,11 @@ nav a{
 }
 nav li a{
     color: black;
+}
+.car-nav{
+
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 i .material-icons{
     font-size: 5px;
