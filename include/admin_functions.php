@@ -63,6 +63,23 @@ class ADMIN
 
         echo($user_table[0]);
     }
+
+    private function getCars(){
+        $stmt = $this->conn->prepare("SELECT * FROM cars");
+        $stmt->execute();
+        $row = $stmt->fetchAll();
+        return $row;
+    }
+
+    public function load_cars()
+    {
+        $data = $this->getCars();
+        foreach ($data as $row) {
+            $name = $row['name'];
+            $des = $row['description'];
+            echo ('<div class="divider"></div><div class="section"><h5>' . $name . '</h5><p>' . $des . '</p></div>');
+        }
+    }
 }
 
 
