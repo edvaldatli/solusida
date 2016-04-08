@@ -1,18 +1,22 @@
 /* LANDING */
 body{
-    overflow-x: hidden;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
 }
 
 body#landing{
-    background-image: url(../image/landing.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+
 }
 nav#landing{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
 }
-
+.material-icons{
+    margin: 0;
+}
+.tabs{
+    overflow-x: hidden;
+}
 nav i.material-icons{
     font-size: 20px;
 }

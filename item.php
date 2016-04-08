@@ -18,24 +18,30 @@ $data = new ADMIN();
 <div class="container container-low row">
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s3 disabled"><a class="active black-text" href="#model" id="trggr-model">Model</a></li>
-            <li class="tab col s3 disabled"><a class="black-text" href="#color" id="trggr-color">Color</a></li>
-            <li class="tab col s3 disabled"><a class="black-text" href="#mod" id="trggr-mod">Mod</a></li>
-            <li class="tab col s3 disabled"><a class="black-text" href="#pay" id="trggr-pay">Payment</a></li>
+            <li class="tab col s3"><a class="active black-text disabled" href="#model">Model</a></li>
+            <li class="tab col s3"><a class="black-text disabled" href="#color">Color</a></li>
+            <li class="tab col s3"><a class="black-text disabled" href="#mod">Mod</a></li>
+            <li class="tab col s3"><a class="black-text disabled" href="#pay">Payment</a></li>
         </ul>
     </div>
+    <button class="btn left" id="back"><i class="material-icons">undo</i> <strong>Back</strong></button>
+    <button class="btn right" id="next"><strong>Next</strong> <i class="medium material-icons">redo</i></button>
+    
     <div id="model" class="col s12">
-        <button class="btn right" id="next">Next</button>
+        <?php $data->load_cars();?>
     </div>
     <div id="color" class="col s12">
-        <button class="btn right" id="next">Next</button>
+
     </div>
     <div id="mod" class="col s12">
-        <button class="btn right" id="next">Next</button>
+
     </div>
     <div id="pay" class="col s12">
-        <button class="btn right" id="next">Next</button>
+
     </div>
+
+
+
 </div>
 
 <script type="text/javascript" src="js/payment.js"></script>
