@@ -54,6 +54,9 @@ i .material-icons{
 .container-low{
 
 }
+.slct{
+    margin: 0px !important;
+}
 .container-low#landing{
     margin-top: 200px;
     margin-bottom: 70px;

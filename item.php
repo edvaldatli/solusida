@@ -24,8 +24,8 @@ $data = new ADMIN();
             <li class="tab col s3"><a class="black-text disabled" href="#pay">Payment</a></li>
         </ul>
     </div>
-    <button class="btn left" id="back"><i class="material-icons">undo</i> <strong>Back</strong></button>
-    <button class="btn right" id="next"><strong>Next</strong> <i class="medium material-icons">redo</i></button>
+    <button class="btn left" id="back"><strong>Back</strong></button>
+    <button class="btn right" id="next"><strong>Next</strong></button>
     
     <div id="model" class="col s12">
         <?php $data->load_cars();?>
