@@ -30,6 +30,7 @@ $data = new ADMIN();
     <div id="model" class="col s12">
         <?php $data->load_cars();?>
     </div>
+    
     <div id="color" class="col s12">
 
     </div>
