@@ -39,6 +39,14 @@ nav li a{
     overflow-x: hidden;
     overflow-y: hidden;
 }
+.h5-price{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+#color{
+    position:relative;
+}
 i .material-icons{
     font-size: 5px;
 }
@@ -51,8 +59,12 @@ i .material-icons{
 .threecontainer div{
     margin-top: 30px;
 }
-.container-low{
-
+.lowcontainer{
+    margin-top: 15em;
+    padding: 100000000000000000px;
+}
+.slct{
+    margin: 0px !important;
 }
 .container-low#landing{
     margin-top: 200px;

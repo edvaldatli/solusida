@@ -9,7 +9,6 @@ require_once('config.php');
 
 class ADMIN
 {
-
     private $conn;
 
     public function __construct()
@@ -71,13 +70,22 @@ class ADMIN
         return $row;
     }
 
+    public function getCarById($id){
+        $stmt = $this->conn->prepare("SELECT id, name, image, description, prize FROM cars WHERE id = '" . $id . "'");
+        $stmt->execute();
+        $row = $stmt->fetchAll();
+        return json_encode($row);
+    }
+
     public function load_cars()
     {
         $data = $this->getCars();
         foreach ($data as $row) {
             $name = $row['name'];
+            $id = $row['id'];
             $des = $row['description'];
-            echo ('<div class="divider"></div><div class="section"><h5>' . $name . '</h5><p>' . $des . '</p></div>');
+            $price = $row['prize'];
+            echo ('<div class="section"><h5>Volksvagen ' . $name . '</h5><h6 class="right">$' . $price . '</h6><p>' . $des . '</p><button class="btn btn-flat slct" id="' . $id . '">Select Product</button></div><div class="divider black"></div>');
         }
     }
 }
