@@ -9,7 +9,6 @@ require_once('config.php');
 
 class ADMIN
 {
-
     private $conn;
 
     public function __construct()
@@ -64,13 +63,18 @@ class ADMIN
         echo($user_table[0]);
     }
 
-    private function getCars(){
+    public function getCars(){
         $stmt = $this->conn->prepare("SELECT * FROM cars");
         $stmt->execute();
         $row = $stmt->fetchAll();
         return $row;
     }
-
+    public function getCarById($id){
+        $stmt = $this->conn->prepare("SELECT id, name, image, description, prize FROM cars WHERE id = '" . $id . "'");
+        $stmt->execute();
+        $row = $stmt->fetchAll();
+        return json_encode($row);
+    }
     public function load_cars()
     {
         $data = $this->getCars();
@@ -79,7 +83,21 @@ class ADMIN
             $id = $row['id'];
             $des = $row['description'];
             $price = $row['prize'];
-            echo ('<div class="section"><h5>' . $name . '</h5><h6 class="right">' . $price . '</h6><p>' . $des . '</p><button class="btn btn-flat slct" id="' . $id . '">Select Product</button></div><div class="divider black"></div>');
+            echo ('<div class="section"><h5>Volksvagen ' . $name . '</h5><h6 class="right">$' . $price . '</h6><p>' . $des . '</p><button class="btn btn-flat slct" id="' . $id . '">Select Product</button></div><div class="divider black"></div>');
+        }
+    }
+
+    public function load_cars_index(){
+        $data = $this->getCars();
+        $teljari = 0;
+        foreach ($data as $row) {
+            $teljari++;
+            if($teljari == 4) break;
+            $name = $row['name'];
+            $des = $row['description'];
+            $img = $row['image'];
+            $link = '#';
+            echo '<div class="col s12 m4"><div class="card"><div class="card-image"><img height="250" src="' . $img . '"><span class="card-title">' . $name . '</span></div><div class="card-content"><p>' . $des . '</p></div><div class="card-action"><a href="' . $link . '">Read more</a></div></div></div>';
         }
     }
 }
