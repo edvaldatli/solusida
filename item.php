@@ -8,7 +8,6 @@ session_start();
 </head>
 <body id="top">
 <?php include "include/menu.php"; ?>
-
 <div class="container container-low row">
     <div class="col s12">
         <ul class="tabs">
@@ -20,7 +19,6 @@ session_start();
     <div id="model" class="col s12">
         <?php $class->load_cars();?>
     </div>
-
     <div id="color" class="col s12">
         <span>Selecting a model first might be a smart move!</span>
     </div>
@@ -28,7 +26,7 @@ session_start();
         <span>Selecting a model first might be a smart move!</span>
     </div>
 </div>
-
 <script type="text/javascript" src="js/payment.js"></script>
 </body>
+
 </html>
