@@ -1,7 +1,6 @@
 // Variables
 
-var array = ['model', 'color', 'mod', 'pay'];
-var staðsetning = 0;
+var data;
 var targetId = undefined;
 
 // Navigation
@@ -14,10 +13,6 @@ $(document).ready(function(){
         $('#color').html('<div class="lowcontainer progress col s6 offset-s3"><div class="indeterminate"></div></div>');
     });
 });
-
-function toTop(){
-    $('#tabs').animate({scrollTop: 0}, 500);
-}
 
 function nextPage(){
     $('ul.tabs').tabs('select_tab', 'color');
@@ -54,12 +49,37 @@ function modelSelect(targetId){
                     '</div></div></div>').show();
                 console.log('ANNAÐ')
             });
+            paymentLoad(data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
             console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
         }
     })
+}
+
+function paymentLoad(data){
+    $('#pay').html('' +
+        '<form class="col s8">' +
+        '<div class="row">' +
+        '<div class="input-field col s6">' +
+        '<input id="first_name" type="text" class="validate">' +
+        '<label for="first_name">First Name</label>' +
+        '</div>' +
+        '<div class="input-field col s6">' +
+        '<input id="last_name" type="text" class="validate">' +
+        '<label for="last_name">Last Name</label>' +
+        '</div>' +
+        '<div class="input-field col s10">' +
+        '<input id="card_number" type="text" class="validate">' +
+        '<label for="card_number">Card Number</label>' +
+        '</div>' +
+        '<div class="input-field col s2">' +
+        '<input id="ccv" type="text" class="validate">' +
+        '<label for="ccv">CCV</label>' +
+        '</div>' +
+        '</div>' +
+        '</form>');
 }
 
 

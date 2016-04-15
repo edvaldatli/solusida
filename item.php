@@ -31,7 +31,7 @@ $data = new ADMIN();
         <span>Selecting a model first might be a smart move!</span>
     </div>
     <div id="pay" class="col s12">
-        <span>Selecting a model first might be a smart move!</span>
+
     </div>
 </div>
 
