@@ -31,8 +31,7 @@ function modelSelect(targetId){
         url: 'include/test.php',
         data: {id: targetId, action: 'getCarById'},
         dataType: 'text',
-        'success': function(data){
-
+        'success': function(data) {
             $(document).ready(function(){
                 data = JSON.parse(data);
                 console.log(data['0']);
@@ -53,7 +52,7 @@ function modelSelect(targetId){
                     '<button class="btn btn-flat">White</button>' +
                     '</div></div></div>');
                 console.log('ANNAÐ')
-                });
+            });
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));

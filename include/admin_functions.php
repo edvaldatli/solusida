@@ -69,14 +69,12 @@ class ADMIN
         $row = $stmt->fetchAll();
         return $row;
     }
-
     public function getCarById($id){
         $stmt = $this->conn->prepare("SELECT id, name, image, description, prize FROM cars WHERE id = '" . $id . "'");
         $stmt->execute();
         $row = $stmt->fetchAll();
         return json_encode($row);
     }
-
     public function load_cars()
     {
         $data = $this->getCars();
