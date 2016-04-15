@@ -32,7 +32,8 @@ function modelSelect(targetId){
         data: {id: targetId, action: 'getCarById'},
         dataType: 'text',
         'success': function(data) {
-            $(document).ready(function(){
+            $('#color').html(data['0'].image).hide();
+            $('img').ready(function(){
                 data = JSON.parse(data);
                 console.log(data['0']);
                 console.log('FYRSTA');
@@ -50,7 +51,7 @@ function modelSelect(targetId){
                     '<button class="btn btn-flat">Blue</button>' +
                     '<button class="btn btn-flat">Black</button>' +
                     '<button class="btn btn-flat">White</button>' +
-                    '</div></div></div>');
+                    '</div></div></div>').show();
                 console.log('ANNAÐ')
             });
         },

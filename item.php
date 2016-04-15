@@ -20,7 +20,6 @@ $data = new ADMIN();
         <ul class="tabs">
             <li class="tab col s3"><a class="active black-text" href="#model">Model</a></li>
             <li class="tab col s3"><a class="black-text" href="#color">Color</a></li>
-            <li class="tab col s3"><a class="black-text" href="#mod">Mod</a></li>
             <li class="tab col s3"><a class="black-text" href="#pay">Payment</a></li>
         </ul>
     </div>
@@ -29,9 +28,6 @@ $data = new ADMIN();
     </div>
 
     <div id="color" class="col s12">
-
-    </div>
-    <div id="mod" class="col s12">
         <span>Selecting a model first might be a smart move!</span>
     </div>
     <div id="pay" class="col s12">

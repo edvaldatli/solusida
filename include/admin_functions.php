@@ -63,7 +63,7 @@ class ADMIN
         echo($user_table[0]);
     }
 
-    private function getCars(){
+    public function getCars(){
         $stmt = $this->conn->prepare("SELECT * FROM cars");
         $stmt->execute();
         $row = $stmt->fetchAll();
