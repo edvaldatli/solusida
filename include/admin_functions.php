@@ -11,6 +11,10 @@ class ADMIN
 {
     private $conn;
 
+    public function ajax(){
+
+    }
+
     public function __construct()
     {
         $database = new Database();
@@ -65,6 +69,12 @@ class ADMIN
 
     private function getCars(){
         $stmt = $this->conn->prepare("SELECT * FROM cars");
+        $stmt->execute();
+        $row = $stmt->fetchAll();
+        return $row;
+    }
+    public function getColors(){
+        $stmt = $this->conn->prepare("SELECT * FROM color");
         $stmt->execute();
         $row = $stmt->fetchAll();
         return $row;

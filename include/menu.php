@@ -17,6 +17,7 @@
                     ?>
                 </a></li>
         </ul>
+
         <ul class="side-nav" id="mobile-demo">
             <li><a href="sass.html">Sass</a></li>
             <li><a href="badges.html">Components</a></li>
@@ -25,4 +26,8 @@
         </ul>
     </div>
 </nav>
+
+<div class="parallax-container">
+    <div class="parallax"><img src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
+</div>
 

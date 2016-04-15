@@ -13,6 +13,7 @@ $(document).ready(function(){
         modelSelect(targetId);
         $('#color').html('<div class="lowcontainer progress col s6 offset-s3"><div class="indeterminate"></div></div>');
     });
+    $('')
 });
 
 function toTop(){
@@ -23,19 +24,21 @@ function nextPage(){
     $('ul.tabs').tabs('select_tab', 'color');
 }
 
-// MODEL SELECT+
+// MODEL SELECT
 
 function modelSelect(targetId){
     $.ajax({
         type: "GET",
-        url: 'include/test.php',
-        data: {id: targetId, action: 'getCarById'},
+        url: 'include/ajax.php',
+        data: {id: targetId, action: 'getCarById', action2: 'getColors'},
         dataType: 'text',
         'success': function(data){
 
             $(document).ready(function(){
-                data = JSON.parse(data);
-                console.log(data['0']);
+                console.log(data);
+                console.log(data[0]);
+                data = JSON.parse(data[0]);
+
                 console.log('FYRSTA');
                 $('#color').html('<div class="col s12">' +
                     '<div class="col s12">' +
@@ -54,12 +57,52 @@ function modelSelect(targetId){
                     '</div></div></div>');
                 console.log('ANNAÐ')
                 });
+            paymentLoad(data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
             console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
         }
     })
+}
+
+function paymentLoad(data){
+    $('#pay').html('' +
+        '<div class="payreview col s12 m5 right">' +
+        '<table><thead><tr>' +
+        '<th data-field="item">Item Name</th>' +
+        '<th data-field="price">Price</th>' +
+        '</tr></thead>' +
+        '<tbody>' +
+        '<tr>' +
+        '<td>Volkswagen ' + data['0'].name + '</td>' +
+        '<td>$' + data['0'].prize + '</td>' +
+        '</tr>' +
+        '</tbody>' +
+        '</table>' +
+        '</div>' +
+        '<form class="col s12 m7">' +
+        '<div class="row">' +
+        '<div class="input-field col s12 m6">' +
+        '<input id="first_name" type="text" class="validate">' +
+        '<label for="first_name">First Name</label>' +
+        '</div>' +
+        '<div class="input-field col s12 m6">' +
+        '<input id="last_name" type="text" class="validate">' +
+        '<label for="last_name">Last Name</label>' +
+        '</div>' +
+        '<div class="input-field col s8 m10">' +
+        '<input id="card_number" type="text" class="validate">' +
+        '<label for="card_number">Card Number</label>' +
+        '</div>' +
+        '<div class="input-field col s4 m2">' +
+        '<input id="ccv" type="text" class="validate">' +
+        '<label for="ccv">CCV</label>' +
+        '</div>' +
+        '</div>' +
+        '</form>');
+
+
 }
 
 
