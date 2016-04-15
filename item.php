@@ -1,7 +1,5 @@
 <?php
 session_start();
-require "include/admin_functions.php";
-$data = new ADMIN();
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,10 +8,6 @@ $data = new ADMIN();
 </head>
 <body id="top">
 <?php include "include/menu.php"; ?>
-<div class="parallax-container">
-    <div class="parallax"><img src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
-</div>
-
 
 <div class="container container-low row">
     <div class="col s12">
@@ -24,7 +18,7 @@ $data = new ADMIN();
         </ul>
     </div>
     <div id="model" class="col s12">
-        <?php $data->load_cars();?>
+        <?php $class->load_cars();?>
     </div>
 
     <div id="color" class="col s12">
