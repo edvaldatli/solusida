@@ -1,15 +1,13 @@
-
+<?php $id = $_GET['id']; ?>
+<!DOCTYPE html>
 <html>
 <head>
     <?php include 'include/header.php'; ?>
 </head>
 <body>
-    <?php include 'include/menu.php'; ?>
-    <div class="parallax-container">
-        <div class="parallax"><img src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
+    <?php include 'include/menu.php'; include 'include/carmenu.php';?>
+    <div class="container container-low row">
+        <?php if($id) $class->printCarById($id); else $class->load_cars_product();?>
     </div>
-
-    <?php include 'include/carmenu.php' ?>
-
 </body>
 </html>
