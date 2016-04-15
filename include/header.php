@@ -1,4 +1,7 @@
-<?php include "title.php"; ?>
+<?php include "title.php";
+    include "admin_functions.php";
+    $class = new ADMIN;
+?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Do your shopping easily over the internet">
 <meta name="author" content="Aron Hrafnsson og Eðvald Atli">
