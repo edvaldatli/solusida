@@ -15,4 +15,3 @@
 <div class="parallax-container">
     <div class="parallax" id="headimg"><img class="headimg" src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
 </div>
-

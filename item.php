@@ -4,7 +4,7 @@
     <?php require "include/header.php"; ?>
 </head>
 <body id="top">
-<?php include "include/menu.php"; ?>
+    <?php include "include/menu.php"; ?>
 <div class="container container-low row">
     <div class="col s12">
         <ul class="tabs">
@@ -17,7 +17,7 @@
         <?php $class->load_cars();?>
     </div>
     <div id="color" class="col s12">
-        <span>Selecting a model first might be a smart move!</span>
+
     </div>
     <div id="pay" class="col s12">
         <span>Selecting a model first might be a smart move!</span>

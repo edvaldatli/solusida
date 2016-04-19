@@ -13,6 +13,7 @@ $(document).ready(function(){
         modelSelect(targetId);
         $('#color').html('<div class="lowcontainer progress col s6 offset-s3"><div class="indeterminate"></div></div>');
     });
+    $('')
 });
 
 function toTop(){
@@ -23,12 +24,12 @@ function nextPage(){
     $('ul.tabs').tabs('select_tab', 'color');
 }
 
-// MODEL SELECT+
+// MODEL SELECT
 
 function modelSelect(targetId){
     $.ajax({
         type: "GET",
-        url: 'include/test.php',
+        url: 'include/ajax.php',
         data: {id: targetId, action: 'getCarById'},
         dataType: 'text',
         'success': function(data) {
@@ -41,19 +42,20 @@ function modelSelect(targetId){
                     '<div class="col s12">' +
                     '<h3>Volkswagen ' + data['0'].name + '</h3><h5>' + data['0'].description +'</h5>' +
                     '<h4 class="h5-price">$' + data['0'].prize +'</h4>' +
+                    '<div class="button-collection">' +
+                    '<button class="btn yellow colorselect col s1 offset-s1"></button>' +
+                    '<button class="btn red colorselect col s1 offset-s1"></button>' +
+                    '<button class="btn green colorselect col s1 offset-s1"></button>' +
+                    '<button class="btn blue colorselect col s1 offset-s1"></button>' +
+                    '<button class="btn black colorselect col s1 offset-s1"></button>' +
+                    '<button class="btn white colorselect col s1 offset-s1"></button>' +
+                    '</div>' +
                     '<div class="col s12">' +
                     '<img class="col s12 model" src="' + data['0'].image + '">' +
-                    '</div>' +
-                    '<div class="button-collection">' +
-                    '<button class="btn btn-flat">Yellow</button>' +
-                    '<button class="btn btn-flat">Red</button>' +
-                    '<button class="btn btn-flat">Green</button>' +
-                    '<button class="btn btn-flat">Blue</button>' +
-                    '<button class="btn btn-flat">Black</button>' +
-                    '<button class="btn btn-flat">White</button>' +
                     '</div></div></div>').show();
                 console.log('ANNAÐ')
             });
+            paymentLoad(data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
@@ -61,3 +63,54 @@ function modelSelect(targetId){
         }
     })
 }
+
+function paymentLoad(data){
+    $('#pay').html('' +
+        '<div class="payreview col s12 m5 right">' +
+        '<table><thead><tr>' +
+        '<th data-field="item">Item Name</th>' +
+        '<th data-field="price">Price</th>' +
+        '</tr></thead>' +
+        '<tbody>' +
+        '<tr>' +
+        '<td>Volkswagen ' + data['0'].name + '</td>' +
+        '<td>$' + data['0'].prize + '</td>' +
+        '</tr>' +
+        '</tbody>' +
+        '</table>' +
+        '</div>' +
+        '<form class="col s12 m7">' +
+        '<div class="row">' +
+        '<div class="input-field col s6">' +
+        '<input id="first_name" type="text" class="validate">' +
+        '<label for="first_name">First Name</label>' +
+        '</div>' +
+        '<div class="input-field col s6">' +
+        '<input id="last_name" type="text" class="validate">' +
+        '<label for="last_name">Last Name</label>' +
+        '</div>' +
+        '<div class="input-field col s12">' +
+        '<input id="email" type="text" class="validate">' +
+        '<label for="email">E-mail Address</label>' +
+        '</div>' +
+        '<div class="input-field col s10">' +
+        '<input id="card_number" type="text" class="validate">' +
+        '<label for="card_number">Card Number</label>' +
+        '</div>' +
+        '<div class="input-field col s2">' +
+        '<input id="ccv" type="text" class="validate">' +
+        '<label for="ccv">CCV</label>' +
+        '</div>' +
+        '<div class="input-field col s10">' +
+        '<input id="address" type="text" class="validate">' +
+        '<label for="address">Address</label>' +
+        '</div>' +
+        '<div class="input-field col s2">' +
+        '<input id="zip" type="text" class="validate">' +
+        '<label for="zip">Zip code</label>' +
+        '</div>' +
+        '<button class="btn btn-flat right" type="submit" action="POST">Order</button>' +
+        '</div>' +
+        '</form>');
+}
+
