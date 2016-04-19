@@ -9,10 +9,8 @@ require_once('admin_functions.php');
 $class = new ADMIN;
 
 $action = $_GET['action'];
-$action2 = $_GET['action2'];
 $id = $_GET['id'];
 
-$test[0] = $class->$action($id);
-$test[1] = $class->$action2();
+$test = $class->$action($id);
 
-return $test;
+echo $test;

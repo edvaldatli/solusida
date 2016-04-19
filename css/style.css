@@ -11,6 +11,12 @@ nav#landing{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
 }
+.colorselect{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 40px !important;
+}
 .material-icons{
     margin: 0;
 }
@@ -22,6 +28,9 @@ nav i.material-icons{
 }
 .normal-size{
     font-size: 10px;
+}
+form{
+    z-index: 10000000;
 }
 nav{
     background-color: rgba(0, 0, 0, 0);

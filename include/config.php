@@ -12,9 +12,9 @@ ini_set('display_errors', 'On');
 class Database
 {
     private $host = "localhost";
-    private $db_name = "vw";
-    private $username = "sale";
-    private $password = "9K2q7ycuSqDK4EuD";
+    private $db_name = "0105982499_vw";
+    private $username = "0105982499";
+    private $password = "mypassword";
     public $conn;
 
     public function dbConnection()
