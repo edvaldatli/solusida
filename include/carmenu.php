@@ -3,8 +3,9 @@
 
     $data = $class->getCars();
 
-    foreach($data as $row){
-        $output[$teljari] = $row['name'];
+    foreach($data as $sic){
+        $output[$teljari] = $sic['name'];
+        $pid[$teljari] = $sic['id'];
         $teljari++;
     }
 ?>
@@ -15,7 +16,7 @@
             <ul class="">
                 <?php
                     for($i = 0; $i <= 6; $i++){
-                        echo '<li class="col s2 center"><a href="#" id="' . $i .'">' . $output[$i] . '</a></li>';
+                        echo '<li class="col s2 center"><a href="product.php?id=' . $pid[$i] . '" id="' . $i .'">' . $output[$i] . '</a></li>';
                     }
                 ?>
             </ul>
