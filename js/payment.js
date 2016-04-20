@@ -79,37 +79,37 @@ function paymentLoad(data){
         '</tbody>' +
         '</table>' +
         '</div>' +
-        '<form class="col s12 m7">' +
+        '<form class="col s12 m7" action="include/payment_validation.php" method="post">' +
         '<div class="row">' +
         '<div class="input-field col s6">' +
-        '<input id="first_name" type="text" class="validate">' +
+        '<input name="first_name" id="first_name" type="text" class="validate">' +
         '<label for="first_name">First Name</label>' +
         '</div>' +
         '<div class="input-field col s6">' +
-        '<input id="last_name" type="text" class="validate">' +
+        '<input name="last_name" id="last_name" type="text" class="validate">' +
         '<label for="last_name">Last Name</label>' +
         '</div>' +
         '<div class="input-field col s12">' +
-        '<input id="email" type="text" class="validate">' +
+        '<input name="email" id="email" type="text" class="validate">' +
         '<label for="email">E-mail Address</label>' +
         '</div>' +
         '<div class="input-field col s10">' +
-        '<input id="card_number" type="text" class="validate">' +
+        '<input name="card_number" id="card_number" type="text" class="validate">' +
         '<label for="card_number">Card Number</label>' +
         '</div>' +
         '<div class="input-field col s2">' +
-        '<input id="ccv" type="text" class="validate">' +
+        '<input name="ccv" id="ccv" type="text" class="validate">' +
         '<label for="ccv">CCV</label>' +
         '</div>' +
         '<div class="input-field col s10">' +
-        '<input id="address" type="text" class="validate">' +
+        '<input name="address" id="address" type="text" class="validate">' +
         '<label for="address">Address</label>' +
         '</div>' +
         '<div class="input-field col s2">' +
-        '<input id="zip" type="text" class="validate">' +
+        '<input name="zip" id="zip" type="text" class="validate">' +
         '<label for="zip">Zip code</label>' +
         '</div>' +
-        '<button class="btn btn-flat right" type="submit" action="POST">Order</button>' +
+        '<button class="btn btn-flat right" type="submit">Order</button>' +
         '</div>' +
         '</form>');
 }
