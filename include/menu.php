@@ -3,12 +3,12 @@
         <a href="index.php" class="brand-logo black-text">VOLKS<b>WAGEN</b></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="home.php"><i class="material-icons">home</i></a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="index.php"><i class="material-icons">home</i></a></li>
+            <li><a href="product.php">Cars</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="home.php"><i class="material-icons">home</i></a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="index.php"><i class="material-icons">home</i></a></li>
+            <li><a href="product.php">Cars</a></li>
         </ul>
     </div>
 </nav>

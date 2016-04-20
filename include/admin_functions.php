@@ -105,7 +105,7 @@ class ADMIN
             $name = $row['name'];
             $des = $row['description'];
             $img = $row['image'];
-            $link = '#';
+            $link = 'product.php?id=' . $teljari;
             echo '<div class="col s12 m4"><div class="card"><div class="card-image"><img height="250" src="' . $img . '"><span class="card-title">' . $name . '</span></div><div class="card-content"><p>' . $des . '</p></div><div class="card-action"><a href="' . $link . '">Read more</a></div></div></div>';
         }
     }
