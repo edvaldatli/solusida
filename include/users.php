@@ -287,7 +287,6 @@ class Users
         $statement->bindParam(2,$user_pass);
 
         $ret = false;
-
         try
         {
             $statement->execute();

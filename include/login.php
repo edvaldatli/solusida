@@ -5,8 +5,7 @@
  * Date: 26.4.2016
  * Time: 13:53
  *
-$email = trim($_POST['email']);
-$password = trim($_POST['password']);
+
 echo('<script>alert("Ye");</script>');
 
 require ('users.php');
@@ -19,5 +18,10 @@ if ($status) {
 }else{
     echo('<script>alert("No");</script>');
 }*/
+$email = trim($_POST['email']);
+$password = trim($_POST['password']);
+
+echo $email;
+
 
 
