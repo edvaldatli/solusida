@@ -9,5 +9,18 @@ session_start();
 require_once('include/user.php');
 $admin = new USER();
 if(!isset($_SESSION["username"])){
-    $admin->redirect('index.php');
+    $admin->redirect('admin.php');
 }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <?php require "include/header.php"; ?>
+</head>
+<body><?php include "include/menu.php"; include "include/carmenu.php" ?>
+<div class="container container-low">
+
+</div>
+</body>
+</html>
