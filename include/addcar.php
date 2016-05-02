@@ -22,21 +22,21 @@ class CAR
         return $stmt;
     }
     public function insert($name,$des,$image,$price)
-    {
-        try
         {
-            $stmt = $this->conn->prepare("INSERT INTO cars(id, name, description, image, prize)
+            try
+            {
+                $stmt = $this->conn->prepare("INSERT INTO cars(id, name, description, image, prize)
 		                                               VALUES(:id, :name, :des, :img, :price)");
-            $stmt->bindParam(":id", $id);
-            $stmt->bindparam(":name", $name);
-            $stmt->bindparam(":des", $des);
-            $stmt->bindparam(":img", $image);
-            $stmt->bindParam(":price", $price);
-            $stmt->execute();
-            return $stmt;
+                $stmt->bindParam(":id", $id);
+                $stmt->bindparam(":name", $name);
+                $stmt->bindparam(":des", $des);
+                $stmt->bindparam(":img", $image);
+                $stmt->bindParam(":price", $price);
+                $stmt->execute();
+                return $stmt;
 
 
-        }
+            }
         catch(PDOException $e)
         {
             echo $e->getMessage();
