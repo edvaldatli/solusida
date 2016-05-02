@@ -1,17 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Aron
- * Date: 29.2.2016
- * Time: 17:19
+ * User: 0712982139
+ * Date: 27.4.2016
+ * Time: 09:40
  */
 session_start();
-require_once ('include/session.php');
-require_once ('include/register.php');
-$user_logout = new USER();
-
-if(isset($_SESSION['user']) || isset($_SESSION['admin']))
-{
-    $user_logout->doLogout();
-    $user_logout->redirect('index.php');
-}
+session_destroy();
+header("Location: index.php");

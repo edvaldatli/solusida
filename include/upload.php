@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 0712982139
- * Date: 1.3.2016
- * Time: 13:50
- */
-
 class UPLOAD {
-
     protected $uploaded = [];
     protected $destination;
     protected $max = 51200;
     protected $messages = [];
     protected $permitted = [
+        'image/gif',
         'image/jpeg',
         'image/pjpeg',
         'image/png'
@@ -24,17 +17,13 @@ class UPLOAD {
 
             throw new \Exception("$path must be a valid, writable directory.");
         }
-        $this->destination = $path;     # við vísum í breytu/property með breytuheiti, en sleppum $
 
+        $this->destination = $path;
     }
 
     public function upload() {
-
         $uploaded = current($_FILES);
-
         if ($this->checkFile($uploaded)) {
-
-            # upload file
             $this->moveFile($uploaded);
         }
     }
@@ -46,15 +35,13 @@ class UPLOAD {
     protected function checkFile($file) {
         return true;
     }
-
+    
     protected function moveFile($file) {
-
-        $salt = uniqid(time());
-        $file['name'] = $salt . $file['name'];
         $success = move_uploaded_file($file['tmp_name'], $this->destination . $file['name']);
-
         if ($success) {
             $result = $file['name'] . ' was uploaded successfully';
+            $link = $this->destination . $file['name'];
+            return $link;
             $this->messages[] = $result;
         } else {
             $this->messages[] = 'Could not upload ' . $file['name'];

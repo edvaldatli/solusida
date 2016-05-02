@@ -1,55 +1,60 @@
 <?php
-    session_start();
-    require_once "include/config.php"; //DB connection
-    require_once "include/admin_functions.php";
+/**
+ * Created by PhpStorm.
+ * User: 0712982139
+ * Date: 26.4.2016
+ * Time: 13:25
+ */
+session_start();
+require_once 'include/user.php';
+$login = new USER();
 
-    $admin = new ADMIN();
-
-    if($admin->is_admin() == false)
+if(isset($_POST['email']))
+{
+    $uname = trim(strip_tags($_POST['email']));
+    $umail = trim(strip_tags($_POST['email']));
+    $upass = trim(strip_tags($_POST['password']));
+    if($login->doLogin($uname,$umail,$upass))
     {
-        $admin->redirect('home.php');
+        $_SESSION["username"] = $uname;
+        $login->redirect('adminpanel.php');
     }
-
-if (isset($_POST['upload'])) {
-
-    $destination = $_SERVER['DOCUMENT_ROOT'] . "/image/products/";
-    require_once "include/upload.php";
-    try {
-        $loader = new UPLOAD($destination);
-        $loader->upload();
-        $result = $loader->getMessages();
-    } catch (Exception $e) {
-        echo $e->getMessage();
+    else
+    {
+        $error = "Wrong Details !";
     }
 }
+
+if(isset($_SESSION["username"])){
+    $login->redirect('adminpanel.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<?php
-    include "include/header.php";
-?>
+    <?php require "include/header.php"; ?>
 </head>
-<body>
-<h1>Total Users: <?php $admin->user_count(); ?></h1>
-<h1>Total Posts: <?php $admin->post_count(); ?></h1>
-<?php
-if (isset($result)) {
-    echo '<ul>';
-    foreach ($result as $message) {
-        echo "<li>$message</li>";
-    }
-    echo '</ul>';
-}
-?>
-<form action="" method="post" enctype="multipart/form-data" id="uploadImage">
-    <p>
-        <label for="image">Upload image:</label>
-        <input type="file" name="image" id="image">
-    </p>
-    <p>
-        <input type="submit" name="upload" id="upload" value="Upload">
-    </p>
-</form>
+<body><?php include "include/menu.php"; include "include/carmenu.php" ?>
+<div class="container container-low">
+    <form class="center" action="" method="POST">
+        <?php if(!empty($error)){
+            print_r($error);
+        } ?>
+        <div class="row">
+            <div class="input-field col s6 center">
+                <input id="email" type="text" class="validate" name="email">
+                <label for="email">Email or Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 center">
+                <input id="password" type="password" class="validate" name="password">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light left" type="submit">Login<i class="material-icons right">send</i></button>
+    </form>
+</div>
 </body>
 </html>
