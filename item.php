@@ -4,16 +4,7 @@
     <?php require "include/header.php"; ?>
 </head>
 <body id="top">
-<<<<<<< HEAD
-<?php include "include/menu.php"; ?>
-<div class="parallax-container">
-    <div class="parallax"><img src="http://www.inopowers.net/images/2015/09/2016-Volkswagen-Tiguan-Crossover-Wallpaper.jpg"></div>
-</div>
-
-
-=======
     <?php include "include/menu.php"; ?>
->>>>>>> upstream/master
 <div class="container container-low row">
     <div class="col s12">
         <ul class="tabs">
@@ -25,14 +16,8 @@
     <div id="model" class="col s12">
         <?php $class->load_cars();?>
     </div>
-<<<<<<< HEAD
-
-    <div id="color" class="col s12">
-        <span>Selecting a model first might be a smart move!</span>
-=======
     <div id="color" class="col s12">
 
->>>>>>> upstream/master
     </div>
     <div id="pay" class="col s12">
         <span>Selecting a model first might be a smart move!</span>

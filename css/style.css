@@ -106,3 +106,9 @@ i .material-icons{
     margin: 0 auto;
 }
 
+/* FIX */
+.parallax img{
+    display: block;
+    transform: translate3d(-50%, 552px, 0px);
+}
+

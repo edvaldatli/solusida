@@ -29,11 +29,7 @@ function nextPage(){
 function modelSelect(targetId){
     $.ajax({
         type: "GET",
-<<<<<<< HEAD
-        url: 'include/test.php',
-=======
         url: 'include/ajax.php',
->>>>>>> upstream/master
         data: {id: targetId, action: 'getCarById'},
         dataType: 'text',
         'success': function(data) {
@@ -46,28 +42,13 @@ function modelSelect(targetId){
                     '<div class="col s12">' +
                     '<h3>Volkswagen ' + data['0'].name + '</h3><h5>' + data['0'].description +'</h5>' +
                     '<h4 class="h5-price">$' + data['0'].prize +'</h4>' +
-<<<<<<< HEAD
-                    '<div class="col s12">' +
-                    '<img class="col s12 model" src="' + data['0'].image + '">' +
-                    '</div>' +
                     '<div class="button-collection">' +
-                    '<button class="btn btn-flat">Yellow</button>' +
-                    '<button class="btn btn-flat">Red</button>' +
-                    '<button class="btn btn-flat">Green</button>' +
-                    '<button class="btn btn-flat">Blue</button>' +
-                    '<button class="btn btn-flat">Black</button>' +
-                    '<button class="btn btn-flat">White</button>' +
-                    '</div></div></div>').show();
-                console.log('ANNAÐ')
-            });
-=======
-                    '<div class="button-collection">' +
-                    '<button class="btn yellow colorselect col s1 offset-s1"></button>' +
-                    '<button class="btn red colorselect col s1 offset-s1"></button>' +
-                    '<button class="btn green colorselect col s1 offset-s1"></button>' +
-                    '<button class="btn blue colorselect col s1 offset-s1"></button>' +
-                    '<button class="btn black colorselect col s1 offset-s1"></button>' +
-                    '<button class="btn white colorselect col s1 offset-s1"></button>' +
+                    '<button id="yellow" class="btn yellow colorselect col s1 offset-s1"></button>' +
+                    '<button id="red" class="btn red colorselect col s1 offset-s1"></button>' +
+                    '<button id="green" class="btn green colorselect col s1 offset-s1"></button>' +
+                    '<button id="blue" class="btn blue colorselect col s1 offset-s1"></button>' +
+                    '<button id="black" class="btn black colorselect col s1 offset-s1"></button>' +
+                    '<button id="white" class="btn white colorselect col s1 offset-s1"></button>' +
                     '</div>' +
                     '<div class="col s12">' +
                     '<img class="col s12 model" src="' + data['0'].image + '">' +
@@ -75,15 +56,12 @@ function modelSelect(targetId){
                 console.log('ANNAÐ')
             });
             paymentLoad(data);
->>>>>>> upstream/master
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
             console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
         }
     })
-<<<<<<< HEAD
-=======
 }
 
 function paymentLoad(data){
@@ -101,7 +79,7 @@ function paymentLoad(data){
         '</tbody>' +
         '</table>' +
         '</div>' +
-        '<form class="col s12 m7" action="include/payment_validation.php" method="post">' +
+        '<form class="col s12 m7" method="post" id="payform">' +
         '<div class="row">' +
         '<div class="input-field col s6">' +
         '<input name="first_name" id="first_name" type="text" class="validate">' +
@@ -131,10 +109,19 @@ function paymentLoad(data){
         '<input name="zip" id="zip" type="text" class="validate">' +
         '<label for="zip">Zip code</label>' +
         '</div>' +
-        '<button class="btn btn-flat right" type="submit">Order</button>' +
+        '<button class="btn btn-flat right submitbtn" type="submit">Order</button>' +
         '</div>' +
         '</form>');
->>>>>>> upstream/master
+    $('.submitbtn').on('click', function(){
+        $.ajax({
+            type: "POST",
+            url: 'include/postOrder.php',
+            data: $('$payform').serialize(),
+            'success': function(data) {
+
+            }
+        })
+    });
 }
 
 

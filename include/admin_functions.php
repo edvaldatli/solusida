@@ -61,25 +61,12 @@ class ADMIN
         return json_encode($row);
     }
 
-<<<<<<< HEAD
-    public function getCars(){
-        $stmt = $this->conn->prepare("SELECT * FROM cars");
-=======
     public function getCarById2($id){
         $stmt = $this->conn->prepare("SELECT * FROM cars WHERE id = '" . $id . "'");
->>>>>>> upstream/master
         $stmt->execute();
         $row = $stmt->fetchAll();
         return $row;
     }
-<<<<<<< HEAD
-    public function getCarById($id){
-        $stmt = $this->conn->prepare("SELECT id, name, image, description, prize FROM cars WHERE id = '" . $id . "'");
-        $stmt->execute();
-        $row = $stmt->fetchAll();
-        return json_encode($row);
-    }
-=======
 
     public function printCarById($id){
         $data = $this->getCarById2($id);
@@ -97,7 +84,6 @@ class ADMIN
         echo "<script>$('.headimg').attr('src','" . $img . "');</script>";
     }
 
->>>>>>> upstream/master
     public function load_cars()
     {
         $data = $this->getCars();
