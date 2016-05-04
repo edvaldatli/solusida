@@ -79,7 +79,7 @@ function paymentLoad(data){
         '</tbody>' +
         '</table>' +
         '</div>' +
-        '<form class="col s12 m7" action="include/payment_validation.php" method="post">' +
+        '<form class="col s12 m7" method="post" id="payform">' +
         '<div class="row">' +
         '<div class="input-field col s6">' +
         '<input name="first_name" id="first_name" type="text" class="validate">' +
@@ -109,8 +109,28 @@ function paymentLoad(data){
         '<input name="zip" id="zip" type="text" class="validate">' +
         '<label for="zip">Zip code</label>' +
         '</div>' +
-        '<button class="btn btn-flat right" type="submit">Order</button>' +
+        '<button class="btn btn-flat right submitbtn" type="submit">Order</button>' +
         '</div>' +
         '</form>');
+    $('.submitbtn').on('click', function(e){
+        e.preventDefault();
+        console.log($('#payform').serialize())
+        $.ajax({
+            type: "POST",
+            url: 'include/postOrder.php',
+            data: "first_name: " +  + "",
+            'success': function(data) {
+                alert("Your order has been taken!");
+                alert(data);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(JSON.stringify(jqXHR));
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+        })
+    });
 }
+
+
+
 
