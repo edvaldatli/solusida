@@ -184,29 +184,27 @@ class Upload {
                 $result .= ', and was renamed ' . $this->newName;
             }
             $this->messages[] = $result;
-            $image = $result;
-            public function insert($name,$des,$image,$price)
-            {
-                try {
-                    $stmt = $this->conn->prepare("INSERT INTO cars(name, description, image, prize)
-		                                               VALUES(:name, :des, :img, :price)");
-                    $stmt->bindparam(":name", $name);
-                    $stmt->bindparam(":des", $des);
-                    $stmt->bindparam(":img", $image);
-                    $stmt->bindParam(":price", $price);
-                    $stmt->execute();
-                    return $stmt;
+            $image = $this->destination . $filename;
 
-
-                } catch (PDOException $e) {
-                    echo $e->getMessage();
-                }
-            }
         } else {
             $this->messages[] = 'Could not upload ' . $file['name'];
         }
     }
 
+    public function insert($name,$des,$price)
+    {
+        try {
+            $stmt = $this->conn->prepare("INSERT INTO cars(name, description,  prize)
+		                                               VALUES(:name, :des, :price)");
+            $stmt->bindparam(":name", $name);
+            $stmt->bindparam(":des", $des);
+            $stmt->bindParam(":price", $price);
+            $stmt->execute();
+            return $stmt;
 
 
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

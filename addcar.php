@@ -29,7 +29,7 @@ if (isset($_POST['action'])) {
         $price = trim(strip_tags($_POST['price']));
 
         try {
-            if ($loader->insert($name,$des,$image,$price)) {
+            if ($loader->insert($name,$des,$price)) {
                 echo "Ye";
             }
         } catch (PDOException $e) {
