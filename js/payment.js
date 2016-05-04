@@ -110,18 +110,23 @@ function paymentLoad(data){
         '<label for="zip">Zip code</label>' +
         '</div>' +
         '<button class="btn btn-flat right submitbtn" type="submit">Order</button>' +
-        '</div>' +
-        '</form>');
-    $('.submitbtn').on('click', function(){
+        '</div>'
+    )
+    $('.submitbtn').on('click', function(e){
+        e.preventDefault();
+        var data = $('#payform').serialize();
         $.ajax({
             type: "POST",
             url: 'include/postOrder.php',
-            data: $('$payform').serialize(),
+            data: decodeURI(data),
             'success': function(data) {
-
+                alert("Your order has been taken!");
+                alert(data);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(JSON.stringify(jqXHR));
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
             }
         })
     });
 }
-
-

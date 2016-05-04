@@ -33,6 +33,11 @@ class ADMIN
         header("Location: $url");
     }
 
+    public function insert_order($data){
+        $stmt = $this->conn->prepare("INSERT INTO customers(first_name, last_name, email, cardnumber, securitycode, address, zip) VALUES(?, ?, ?, ?, ?, ?, ?");
+        $stmt->execute(array($data[0], $data[1], $data[2], $data[3], $data[4], $data[5], $data[6]));
+    }
+
     public function user_table($sql){
         $stmt = $this->conn->prepare("SELECT '$sql' FROM users");
         $stmt->execute();
@@ -121,4 +126,5 @@ class ADMIN
             echo '<div class="col s12 m4"><div class="card"><div class="card-image"><img height="250" src="' . $img . '"><span class="card-title">' . $name . '</span></div><div class="card-content"><p>' . $des . '</p></div><div class="card-action"><a href="' . $link . '">Read more</a></div></div></div>';
         }
     }
+
 }

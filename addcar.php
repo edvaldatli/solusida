@@ -5,36 +5,40 @@
  * Date: 29.4.2016
  * Time: 10:51
  */
+$max = 600 * 1024; // 600 KB
 
 if(isset($_SESSION["username"])){
-    $login->redirect('adminpanel.php');
+    $login->redirect('admin.php');
 }
 
 if (isset($_POST['action'])) {
     require "include/config.php";
     require_once 'include/upload.php';
     require_once('include/addcar.php');
-    $class = new CAR();
+
     $destination = $_SERVER['DOCUMENT_ROOT'] . '/image/products/';
     try {
-        $loader = new UPLOAD($destination);
+        $loader = new Upload($destination);
+        $loader->setMaxSize($max);
+        $loader->allowAllTypes();
         $loader->upload();
         $result = $loader->getMessages();
 
+        $name = trim(strip_tags($_POST['name']));
+        $des = trim(strip_tags($_POST['description']));
+        $price = trim(strip_tags($_POST['price']));
+
+        try {
+            if ($loader->insert($name,$des,$image,$price)) {
+                echo "Ye";
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     } catch (Exception $e) {
         echo $e->getMessage();
     }
 
-    $name = trim(strip_tags($_POST['name']));
-    $des = trim(strip_tags($_POST['description']));
-    $price = trim(strip_tags($_POST['price']));
-    try {
-        if ($user->insert($name,$des,$link,$price)) {
-            echo "Ye";
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
 
 
 
