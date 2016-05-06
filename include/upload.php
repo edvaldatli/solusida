@@ -32,7 +32,7 @@ class Upload {
         $this->destination = $path;
     }
 
-    public function upload($renameDuplicates = true) {
+    public function upload($id,$renameDuplicates = true) {
         $this->renameDuplicates = $renameDuplicates;
         $uploaded = current($_FILES);
         if (is_array($uploaded['name'])) {
@@ -49,7 +49,7 @@ class Upload {
             }
         } else {
             if ($this->checkFile($uploaded)) {
-                $this->moveFile($uploaded);
+                $this->moveFile($uploaded,$id);
             }
         }
     }
@@ -175,7 +175,7 @@ class Upload {
         }
     }
 
-    public function moveFile($file) {
+    public function moveFile($file,$id) {
             $filename = isset($this->newName) ? $this->newName : $file['name'];
         $success = move_uploaded_file($file['tmp_name'], $this->destination . $filename);
         if ($success) {
@@ -184,29 +184,35 @@ class Upload {
                 $result .= ', and was renamed ' . $this->newName;
             }
             $this->messages[] = $result;
-            $image = $result;
-            public function insert($name,$des,$image,$price)
-            {
-                try {
-                    $stmt = $this->conn->prepare("INSERT INTO cars(name, description, image, prize)
-		                                               VALUES(:name, :des, :img, :price)");
-                    $stmt->bindparam(":name", $name);
-                    $stmt->bindparam(":des", $des);
-                    $stmt->bindparam(":img", $image);
-                    $stmt->bindParam(":price", $price);
-                    $stmt->execute();
-                    return $stmt;
-
-
-                } catch (PDOException $e) {
-                    echo $e->getMessage();
-                }
-            }
+            $image = $this->destination . $filename;
+            $this->updateImage($id,$image);
         } else {
             $this->messages[] = 'Could not upload ' . $file['name'];
         }
     }
 
+    public function insert($name,$des,$price)
+    {
+        try {
+            $stmt = $this->conn->prepare("INSERT INTO cars(name, description, prize)
+		                                               VALUES(:name, :des, :price)");
+            $stmt->bindparam(":name", $name);
+            $stmt->bindparam(":des", $des);
+            $stmt->bindParam(":price", $price);
+            $stmt->execute();
+            return $stmt;
 
 
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function updateImage($id,$image){
+        $stmt = $this->conn->prepare("UPDATE cars SET image = :image WHERE id = :id");
+        $stmt->bindparam(":id", $id);
+        $stmt->bindparam(":image", $image);
+        $stmt->execute();
+        return $stmt;
+    }
 }
