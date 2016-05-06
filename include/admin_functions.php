@@ -129,4 +129,48 @@ class ADMIN
         }
     }
 
+    public function load_cars_edit(){
+        $data = $this->getCars();
+        foreach ($data as $row) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $des = $row['description'];
+            $img = $row['image'];
+            $link = '?id=' . $id;
+            echo '<div class="col s12 m4"><div class="card"><div class="card-image"><img height="250" src="' . $img . '"><span class="card-title">' . $name . '</span></div><div class="card-content"><p>' . $des . '</p></div><div class="card-action"><a href="' . $link . '">Edit</a></div></div></div>';
+        }
+    }
+
+    public function updateCar($id,$carname,$cardes,$carprice)
+    {
+        try
+        {
+            $stmt = $this->conn->prepare("UPDATE cars SET name = :carname, description = :cardes, prize = :carprice WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->bindparam(":carname", $carname);
+            $stmt->bindparam(":cardes", $cardes);
+            $stmt->bindparam(":carprice", $carprice);
+            $stmt->execute();
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function removeCar($id){
+        try
+        {
+            $stmt = $this->conn->prepare("DELETE FROM cars WHERE id = :id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            return $stmt;
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
 }

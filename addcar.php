@@ -6,22 +6,21 @@
  * Time: 10:51
  */
 $max = 600 * 1024; // 600 KB
+$id = 0;
 
 if(isset($_SESSION["username"])){
     $login->redirect('admin.php');
 }
 
 if (isset($_POST['action'])) {
-    require "include/config.php";
     require_once 'include/upload.php';
-    require_once('include/addcar.php');
 
     $destination = $_SERVER['DOCUMENT_ROOT'] . '/image/products/';
     try {
         $loader = new Upload($destination);
         $loader->setMaxSize($max);
         $loader->allowAllTypes();
-        $loader->upload();
+        $loader->upload($id);
         $result = $loader->getMessages();
 
         $name = trim(strip_tags($_POST['name']));
@@ -38,10 +37,6 @@ if (isset($_POST['action'])) {
     } catch (Exception $e) {
         echo $e->getMessage();
     }
-
-
-
-
 }
 ?>
 <!DOCTYPE html>
