@@ -34,8 +34,8 @@ class ADMIN
     }
 
     public function insert_order($data){
-        $stmt = $this->conn->prepare("INSERT INTO customers(first_name, last_name, email, cardnumber, securitycode, address, zip) VALUES(?, ?, ?, ?, ?, ?, ?");
-        $stmt->execute(array($data[0], $data[1], $data[2], $data[3], $data[4], $data[5], $data[6]));
+        $stmt = $this->conn->prepare("INSERT INTO customers(first_name, last_name, email, cardnumber, securitycode, address, zip) VALUES('" . $data[0] . "', '" . $data[1] . "' , '" . $data[2] . "', '" . $data[3] . "', '" . $data[4] . "', '" . $data[5] . "', '" . $data[6] . "')");
+        $stmt->execute();
     }
 
     public function user_table($sql){

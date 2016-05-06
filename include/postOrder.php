@@ -4,7 +4,7 @@ require_once('admin_functions.php');
 
 $class = new ADMIN();
 
-$firstname = $_POST['full_name'];
+$firstname = $_POST['first_name'];
 $lastname = $_POST['last_name'];
 $email = $_POST['email'];
 $cardnumber = $_POST['card_number'];
@@ -13,5 +13,7 @@ $address = $_POST['address'];
 $zip = $_POST['zip'];
 
 $arrayOfValues = [$firstname, $lastname, $email, $cardnumber, $ccv, $address, $zip];
+
+print_r($arrayOfValues);
 
 $class->insert_order($arrayOfValues);

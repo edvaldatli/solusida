@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Do your shopping easily over the internet">
 <meta name="author" content="Aron Hrafnsson og Eðvald Atli">
+<meta charset="utf-8">
 <link type="image/x-icon" href="../image/fav.png" rel="shortcut icon">
 <link type="image/x-icon" href="../image/fav.png" rel="icon">
 

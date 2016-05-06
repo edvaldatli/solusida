@@ -3,6 +3,7 @@
 var array = ['model', 'color', 'mod', 'pay'];
 var staðsetning = 0;
 var targetId = undefined;
+var carselected = null;
 
 // Navigation
 
@@ -33,6 +34,7 @@ function modelSelect(targetId){
         data: {id: targetId, action: 'getCarById'},
         dataType: 'text',
         'success': function(data) {
+            carselected = data;
             $('#color').html(data['0'].image).hide();
             $('img').ready(function(){
                 data = JSON.parse(data);
@@ -114,19 +116,17 @@ function paymentLoad(data){
     )
     $('.submitbtn').on('click', function(e){
         e.preventDefault();
+        var inputBuyer = [$('#first_name').val(), $('#last_name').val(), $('#email').val(), $('#card_number').val(), $('#ccv').val(), $('#address').val(), $('#zip').val()];
         var data = $('#payform').serialize();
+        console.log(data);
         $.ajax({
             type: "POST",
             url: 'include/postOrder.php',
-            data: decodeURI(data),
+            data: {first_name: inputBuyer[0], last_name: inputBuyer[1], email: inputBuyer[2], card_number: inputBuyer[3], ccv: inputBuyer[4], address: inputBuyer[5], zip: inputBuyer[6]},
             'success': function(data) {
                 alert("Your order has been taken!");
                 alert(data);
             },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(JSON.stringify(jqXHR));
-                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-            }
         })
     });
 }
